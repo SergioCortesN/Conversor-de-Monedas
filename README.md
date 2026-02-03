@@ -171,7 +171,7 @@ El proyecto sigue una arquitectura en capas con separación de responsabilidades
 
 | Tecnología | Versión | Uso |
 |------------|---------|-----|
-| Java | 21+ | Lenguaje base con Virtual Threads |
+| Java | 25 | Lenguaje base con Virtual Threads |
 | Gson | 2.13.2 | Serialización/deserialización JSON |
 | HttpClient | Java 11+ | Cliente HTTP moderno y asíncrono |
 | ExchangeRate-API | v6 | Fuente de tasas de cambio |
