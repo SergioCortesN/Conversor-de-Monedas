@@ -2,6 +2,7 @@ import DataClasses.ExchangeDAO;
 import java.util.Scanner;
 
 private final ExchangeDAO converter = new ExchangeDAO();
+private final Traductor traductor = new Traductor();
 private final Scanner scanner = new Scanner(System.in);
 private Boolean finish = false;
 private final Map<String, String> codeOption = new LinkedHashMap<>();
@@ -90,7 +91,13 @@ public void initMap(){
         for (int i = 0; i < codes.length; i++) {
             for (int j = 0; j < codes[i].length; j += 2) {
                 if (j + 1 < codes[i].length) {
-                    codeOption.put(codes[i][j + 1], "/" + codes[i][j]); // código
+                    var moneda = traductor.traducir(codes[i][j]);
+                    if(moneda != null){
+                        codeOption.put(moneda, "/" + codes[i][j]);
+                    }else {
+                        codeOption.put(codes[i][j+1].toUpperCase(Locale.ROOT), "/" + codes[i][j]);
+                    }
+                     // código
                 } else {
                     System.out.println(codes[i][j]);     // elemento suelto
                 }
